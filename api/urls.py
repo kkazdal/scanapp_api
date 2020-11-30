@@ -4,6 +4,7 @@ from . import views
 
 urlpatterns = [
 	path('image-cevir/', views.ImageToText, name="image-cevir"),
+	path('scan-document/', views.ScanDocumentFunc, name="scan-document")
 ]
 
 '''

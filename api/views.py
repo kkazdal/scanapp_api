@@ -1,9 +1,9 @@
 
 from rest_framework import status
 from rest_framework.decorators import api_view
-from .ImageToText.PdfToWord import PdfToWordExample
 from rest_framework.response import Response
-
+from .ImageToText.PdfToWord import PdfToWordExample
+from .DocumentScanPython.ScanDocument import ScanDocument
 
 
 @api_view(['POST'])
@@ -22,7 +22,20 @@ def ImageToText(request):
 		return Response(i, status=status.HTTP_204_NO_CONTENT)
 
 
+@api_view(['POST'])
+def ScanDocumentFunc(request):
+	try:
+		uploaded_file = request.FILES['photo'].read()
 
+		scanDocument = ScanDocument(uploaded_file)
+		res = {
+
+			'response': scanDocument.RunProject()
+		}
+
+		return Response(res, status=status.HTTP_200_OK)
+	except Exception as i:
+		return Response(i, status=status.HTTP_204_NO_CONTENT)
 '''
 
 	
