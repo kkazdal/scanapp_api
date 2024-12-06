@@ -1,2 +1,2 @@
 # scanapp
-Scan mobil uygulamasının django da yazılmış api'si.
+An API that detects the edges of a paper or any object.
